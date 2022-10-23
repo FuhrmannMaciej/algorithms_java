@@ -17,7 +17,6 @@ public class Main2 {
         double w = -( b / (3.0 * a) );
         double p = ( (3.0 * a * (Math.pow(w,2.0)) ) + (2.0 * b * w) + c)/a;
         double q = ( (a * (Math.pow(w,3.0)) ) + (b * (Math.pow(w,2.0)) ) + (c * w) + d)/a;
-
         double delta = ( (Math.pow(q,2.0) ) /4.0) + ( (Math.pow(p,3.0)) / 27.0);
 
         double x1;
@@ -25,13 +24,13 @@ public class Main2 {
         double x3;
 
         if (delta > 0){
-            double u = ( Math.round(Math.pow( (-(q/2.0) + (Math.sqrt(delta)) ), 1.0 / 3.0)) );
-            double v = ( Math.round(Math.pow( (-(q/2.0) - (Math.sqrt(delta)) ), 1.0 / 3.0)) );
+            double u = Math.cbrt( (-(q/2.0) + (Math.sqrt(delta)) ) );
+            double v = Math.cbrt( (-(q/2.0) - (Math.sqrt(delta)) ) );
             x1 = u + v + w;
             double Re_x2 = 0.5 * (u + v) + w;
 
-            double Im_x2 = (Math.sqrt(3.0)/2.0) * (u - v);
-            double Im_x3 = - (Math.sqrt(3.0)/2.0) * (u - v);
+            double Im_x2 = ((Math.sqrt(3.0))/2.0) * (u - v);
+            double Im_x3 = - ((Math.sqrt(3.0))/2.0) * (u - v);
 
             System.out.println("X1: " + x1);
             System.out.println("Re(X2): " + Re_x2);
@@ -39,7 +38,7 @@ public class Main2 {
             System.out.println("Re(X3): " + Re_x2);
             System.out.println("Im(X3): " + Im_x3);
         } else if (delta == 0) {
-            double var1 = Math.round(Math.pow((q / 2.0), 1.0 / 3.0));
+            double var1 = Math.cbrt((q / 2.0));
             x1 = w - (2.0 * var1);
             x2 = w + ( var1 );
             System.out.println("X1: " + x1);
